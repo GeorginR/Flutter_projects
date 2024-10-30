@@ -62,7 +62,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           color: getBtnColor(value),
           clipBehavior: Clip.hardEdge,
           shape: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(100),
+            borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: Colors.white24),
           ),
           child: InkWell(
