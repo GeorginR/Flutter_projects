@@ -12,10 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter',
-      theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
-      ),
+      theme: ThemeData.dark(),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
       debugShowCheckedModeBanner: false,
     );
@@ -37,12 +34,15 @@ class _MyHomePageState extends State<MyHomePage> {
   void _decrementCounter() {
     setState(() {
       _counter--;
-    });}
-  void _multiplyCounter() {
-  setState(() {
-    _counter=_counter*_counter;
-  });
+    });
   }
+
+  void _multiplyCounter() {
+    setState(() {
+      _counter = _counter * _counter;
+    });
+  }
+
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -53,7 +53,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  const Center(child: Text("GOOD LUCK",style: TextStyle(fontSize: 80,color: Colors.greenAccent),)),),
+        title: const Center(
+            child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            "MUSICIFY",
+            style:
+                TextStyle(fontSize: 35, color: Color.fromARGB(255, 3, 106, 56)),
+          ),
+        )),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -65,28 +74,35 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-          const SizedBox(
-            height: 100,
-          ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-              FloatingActionButton(
-              onPressed: _incrementCounter,
-              tooltip: 'Increment',
-              child: const Icon(Icons.skip_previous),
+            const SizedBox(
+              height: 100,
             ),
-              FloatingActionButton(
-                onPressed: _decrementCounter,
-                tooltip: 'Decrement',
-                child: const Icon(Icons.pause_circle),
-              ),
-              FloatingActionButton(
-                onPressed: _multiplyCounter,
-                tooltip: 'Squaring',
-                child: const Icon(Icons.skip_next),),
-              ],)
-
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FloatingActionButton(
+                  onPressed: _incrementCounter,
+                  tooltip: 'Increment',
+                  child: const Icon(Icons.skip_previous),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                FloatingActionButton(
+                  onPressed: _decrementCounter,
+                  tooltip: 'Decrement',
+                  child: const Icon(Icons.pause_circle),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                FloatingActionButton(
+                  onPressed: _multiplyCounter,
+                  tooltip: 'Squaring',
+                  child: const Icon(Icons.skip_next),
+                ),
+              ],
+            )
           ],
         ),
       ),
